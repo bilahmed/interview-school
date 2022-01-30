@@ -1,0 +1,12 @@
+class CreateAvailableTimes < ActiveRecord::Migration[6.0]
+  def change
+    create_table :available_times do |t|
+      t.string :day, null: false
+      t.datetime :start_time
+      t.datetime :end_time
+      t.references :section, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end

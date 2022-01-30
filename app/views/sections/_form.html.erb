@@ -1,0 +1,48 @@
+<%= form_with(model: section) do |form| %>
+  <%= render 'shared/error_messages', object: section %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :subject_id, "Subject" %>
+    <%= form.select :subject_id, subject_options, { include_blank: '--- Select Subject ---' } %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :teacher_id, "Teacher" %>
+    <%= form.select :teacher_id, teacher_options, { include_blank: '--- Select Teacher ---' } %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :class_room_id, "Class Room" %>
+    <%= form.select :class_room_id, class_room_options, { include_blank: '--- Select Class Room ---' } %>
+  </div>
+
+  <br>
+
+  <h2>Available Time</h2>
+  <div id='available_times'>
+    <%= form.fields_for :available_times do |available_time| %>
+      <%= render 'available_time_fields', f: available_time %>
+    <% end %>
+
+    <div>
+      <%= link_to_add_association "Add", form, :available_times %>
+    </div>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

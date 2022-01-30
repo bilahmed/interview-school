@@ -1,0 +1,18 @@
+<div class='nested-fields'>
+  <div class='field'>
+    <%= f.label :day, "Day" %>
+    <%= f.select :day, AvailableTime::DAYS, { include_blank: '--- Select Day ---' } %>
+  </div>
+  <br>
+  <div class='field'>
+    <%= f.label :start_time, "Start Time" %>
+    <%= f.time_select :start_time, { ampm: true, discard_minute: false, prompt: true, prompt: { hour: "Choose hour", minute: 'Choose minute' } } %>
+  </div>
+  <br>
+  <div class='field'>
+    <%= f.label :end_time, "End Time" %>
+    <%= f.time_select :end_time, { ampm: true, discard_minute: false, prompt: true, prompt: { hour: "Choose hour", minute: 'Choose minute' } } %>
+  </div>
+  <br>
+  <%= link_to_remove_association "Delete", f unless f.index == 0 %>
+</div>

@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <strong>Name:</strong>
+  <%= @section.name %>
+</div>
+
+<div>
+  <strong>Subject:</strong>
+  <%= @section.subject.name %>
+</div>
+
+<div>
+  <strong>Teacher:</strong>
+  <%= @section.teacher.full_name %>
+</div>
+
+<div>
+  <strong>Class:</strong>
+  <%= @section.class_room.name %>
+</div>
+
+<div>
+  <%= link_to "Edit this section", edit_section_path(@section) %> |
+  <%= link_to "Back to sections", sections_path %>
+
+  <%= button_to "Destroy this section", @section, method: :delete %>
+</div>
